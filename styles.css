@@ -18,6 +18,16 @@ html, body {
   color: snow;
 }
 
+h1 {
+  font-size: 5.9vw;
+}
+h2 {
+  font-size: 3.0vh;
+}
+p {
+  font-size: 2vmin;
+}
+
 .main {
   height: 100%;
   width: 100%;
