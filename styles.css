@@ -12,10 +12,10 @@ html, body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   overflow: hidden;
   font-family: 'Alex Brush';
   color: snow;
-  font-size: 16px;
 }
 
 .main {
