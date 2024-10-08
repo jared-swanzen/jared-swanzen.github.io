@@ -3,20 +3,30 @@
   src: url('fonts/AlexBrush-Regular.ttf') format('truetype');
 }
 
+:root {
+  --blue: #6495ed;
+  --white: #faf0e6;
+}
+
 html, body {
   width: 100vw;
   height: 100vh;
   padding: 0;
   margin: 0;
-  background-image: url('images/guitar.jpg');
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
   font-family: 'Alex Brush';
-  color: snow;
+  color: var(--white);
   font-size: 32px;
+  overscroll-behavior: none;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  z-index: -2;
+  overflow: auto;
+  background-color: var(--blue);
 }
 
 h4 {
@@ -30,8 +40,13 @@ h4 {
 .main {
   height: 100%;
   width: 100%;
-  backdrop-filter: blur(2px) brightness(60%);
   overflow: auto;
+}
+
+main::before {
+  z-index: -2;
+  width: 100vw;
+  height: 100vh;
 }
 
 .text-center {
@@ -43,14 +58,45 @@ h4 {
 }
 
 .section {
+  position: relative;
   display: flex;
   height: min(100vh, 150vw);
   width: 100vw;
   overflow: hidden;
   flex-direction: column;
-  background: transparent;
 }
 
-.alternate {
-  background-color: teal;
+.section::before {
+  z-index: -1;
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: min(100vh, 150vw);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(60%);
+}
+
+.guitar::before {
+  background-image: url('images/guitar.jpg');
+}
+
+.ring-on-guitar::before {
+  background-image: url('images/ring-on-guitar.jpg');
+}
+
+/* @media (min-width: 768) {
+  .guitar::before {
+    background-image: url('images/guitar.jpg');
+  }
+  
+  .ring-on-guitar::before {
+    background-image: url('images/ring-on-guitar.jpg');
+  }
+} */
+
+.alternate::before {
+  background-color: var(--blue);
 }
